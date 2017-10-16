@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>IMDb Hide Cast Episode Appearance</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="popup.js"></script>
+  </head>
+  <body id="imdb-hide-cast-container">
+    <div id="logo-container">
+        <img src="/eye-icon.png"/>
+    </div>
+    <section id="character-spoiler-container">
+        <h1>IMDb Hide Cast Episode Appearance</h1>
+        <form>
+            <section class="input-container">
+                <input type="radio" name="character-appearance" value="hide">Hide Content
+            </section>
+            <section class="input-container">
+                <input type="radio" name="character-appearance" value="show">Show Content    
+            </section>
+            <section class="input-container">
+                <input type="radio" name="character-appearance" value="blackOut">Black Out Content    
+                <p class="caption">(Hover over to see)</p>
+            </section>            
+        </form>
+    </section>
+  </body>
+</html>
