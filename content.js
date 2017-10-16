@@ -24,26 +24,25 @@ chrome.runtime.onMessage.addListener(
 $(".ihcec-character-episode-container").hover(
     function() {
         if($(this).hasClass("blackOut")){
-            $(this).css({'background-color':'', 'color':'#444'});
+            $(this).css({'cursor':'pointer','background-color':'', 'color':'#444'});
         }
     }, function() {
         if($(this).hasClass("blackOut")){
-            $(this).css({'background-color':'black', 'color':'black'});        
+            $(this).css({'cursor':'','background-color':'black', 'color':'black'});        
         }
     }
 );
 
 function modifyDOM(state) {
     if(state == 'hide') {
-        console.log("hide hit");
         $(".ihcec-character-episode-container").removeClass("blackOut");
-        $(".ihcec-character-episode-container").css({'background-color':'', 'color':'#f6f6f5'});
+        //Since the table alernates in color, here we targer 'odd' and 'even' row
+        $("table.cast_list tr.odd .ihcec-character-episode-container").css({'background-color':'', 'color': '#f6f6f5' });
+        $("table.cast_list tr.even .ihcec-character-episode-container").css({'background-color':'', 'color': '#fbfbfb' });
     } else if(state == 'show') {
-        console.log("show hit");
         $(".ihcec-character-episode-container").removeClass("blackOut");
         $(".ihcec-character-episode-container").css({'background-color':'', 'color':'#444'});
     } else if(state == 'blackOut') {
-        console.log("blackOut hit");
         $(".ihcec-character-episode-container").addClass("blackOut");
         $(".ihcec-character-episode-container").css({'background-color':'black', 'color':'black'});
     }
