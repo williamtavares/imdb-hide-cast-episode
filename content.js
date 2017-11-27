@@ -2,9 +2,9 @@
 //Only if the class does not exist yet on the page, since this is our own custom class, it would
 //be very rare for this class to already exist from imdb
 if($("table.cast_list").find(".ihcec-character-episode-container").length == 0) {
-    $("table.cast_list").find("td.character").find("div").contents().filter(function () {
-        return this.nodeType === 3 && $.trim(this.nodeValue).length;
-    }).wrap("<div class='ihcec-character-episode-container' style='display: inline-block;margin-left: 10px;'></div>");
+    $("table.cast_list").find("td.character").find("div .toggle-episodes").each(function() { 
+        $(this).addClass("ihcec-character-episode-container");
+    });
 }
 
 //Depending on what the user picked as an option in the app, we automatically set it to their preference
@@ -24,7 +24,7 @@ chrome.runtime.onMessage.addListener(
 $(".ihcec-character-episode-container").hover(
     function() {
         if($(this).hasClass("blackOut")){
-            $(this).css({'cursor':'pointer','background-color':'', 'color':'#444'});
+            $(this).css({'cursor':'pointer','background-color':'', 'color':'#136CB2'});
         }
     }, function() {
         if($(this).hasClass("blackOut")){
@@ -42,6 +42,8 @@ function modifyDOM(state) {
     } else if(state == 'show') {
         $(".ihcec-character-episode-container").removeClass("blackOut");
         $(".ihcec-character-episode-container").css({'background-color':'', 'color':'#444'});
+        $(".ihcec-character-episode-container:link").css({'background-color':'', 'color':'#136CB2'});
+        $(".ihcec-character-episode-container:visited").css({'background-color':'', 'color':'#70579D'});
     } else if(state == 'blackOut') {
         $(".ihcec-character-episode-container").addClass("blackOut");
         $(".ihcec-character-episode-container").css({'background-color':'black', 'color':'black'});
