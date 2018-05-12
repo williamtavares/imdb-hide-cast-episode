@@ -2,7 +2,7 @@
 //Only if the class does not exist yet on the page, since this is our own custom class, it would
 //be very rare for this class to already exist from imdb
 if($("table.cast_list").find(".ihcec-character-episode-container").length == 0) {
-    $("table.cast_list").find("td.character").find("div .toggle-episodes").each(function() { 
+    $("table.cast_list").find("td.character").find("a.toggle-episodes").each(function() { 
         $(this).addClass("ihcec-character-episode-container");
     });
 }

@@ -3,7 +3,7 @@
 
   "name": "IMDb Hide Cast Episode Appearance",
   "description": "Hide the cast's episode appearance count, preventing IMDb spoilers.",
-  "version": "1.3",
+  "version": "1.4",
   "permissions": [
     "tabs",
     "storage"
